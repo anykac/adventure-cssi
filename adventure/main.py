@@ -40,7 +40,7 @@ class AcceptJumpIn(webapp2.RequestHandler):
 
 class RejectJumpIn(webapp2.RequestHandler):
     def get(self):
-        template = env.get_template('template/rejectjump.html')
+        template = env.get_template('templates/rejectjump.html')
         self.response.write(template.render())
 
 class Email(webapp2.RequestHandler):
