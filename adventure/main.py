@@ -22,6 +22,16 @@ class Run(webapp2.RequestHandler):
         template = env.get_template('templates/run.html')
         self.response.write(template.render()) #the response
 
+class RunB(webapp2.RequestHandler): #part of run sequence
+    def get(self): #for a get request
+        template = env.get_template('templates/runb.html')
+        self.response.write(template.render()) #the response
+
+class RunC(webapp2.RequestHandler): #part of run sequence
+    def get(self): #for a get request
+        template = env.get_template('templates/runb.html')
+        self.response.write(template.render()) #the response
+
 class ContactCSSI(webapp2.RequestHandler):
     def get(self): #for a get request
         template = env.get_template('templates/contactcssi.html')
@@ -34,6 +44,8 @@ class IgnoreCar(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ("/", MainPage),
+    ("/runb", RunB),
+    ("/runc", RunC),
     ("/jumpincar", JumpInCar),
     ("/run", Run),
     ("/contactcssi", ContactCSSI),
