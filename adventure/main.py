@@ -22,6 +22,16 @@ class Run(webapp2.RequestHandler):
         template = env.get_template('templates/run.html')
         self.response.write(template.render()) #the response
 
+class RunB(webapp2.RequestHandler): #part of run sequence
+    def get(self): #for a get request
+        template = env.get_template('templates/runb.html')
+        self.response.write(template.render()) #the response
+
+class RunC(webapp2.RequestHandler): #part of run sequence
+    def get(self): #for a get request
+        template = env.get_template('templates/runb.html')
+        self.response.write(template.render()) #the response
+
 class ContactCSSI(webapp2.RequestHandler):
     def get(self): #for a get request
         template = env.get_template('templates/contactcssi.html')
@@ -43,21 +53,15 @@ class RejectJumpIn(webapp2.RequestHandler):
         template = env.get_template('templates/rejectjump.html')
         self.response.write(template.render())
 
-
-
-
-class ListenToCar(webapp2.RequestHandler):
+class Email(webapp2.RequestHandler):
     def get(self):
-        template = env.get_template('templates/listentocar.html')
-        self.response.write(template.render())
-
-class RunAway(webapp2.RequestHandler):
-    def get(self):
-        template = env.get_template('templates/runaway.html')
-        self.response.write(template.render())
+        template = env.get_template('templates/email.html')
+        self.response.write(template.render()) #the response
 
 app = webapp2.WSGIApplication([
     ("/", MainPage),
+    ("/runb", RunB),
+    ("/runc", RunC),
     ("/jumpincar", JumpInCar),
     ("/run", Run),
     ("/contactcssi", ContactCSSI),
@@ -65,7 +69,7 @@ app = webapp2.WSGIApplication([
     #Jump In
     ("/accept", AcceptJumpIn),
     ("/reject", RejectJumpIn),
-
+    #ignore
     ("/listentocar", ListenToCar),
     ("/runaway", RunAway),
 ], debug=True)
