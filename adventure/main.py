@@ -32,6 +32,11 @@ class RunC(webapp2.RequestHandler): #part of run sequence
         template = env.get_template('templates/runb.html')
         self.response.write(template.render()) #the response
 
+class CrushUSB(webapp2.RequestHandler): #part of run sequence
+    def get(self): #for a get request
+        template = env.get_template('templates/crushusb.html')
+        self.response.write(template.render()) #the response
+
 class ContactCSSI(webapp2.RequestHandler):
     def get(self): #for a get request
         template = env.get_template('templates/contactcssi.html')
@@ -60,8 +65,11 @@ class Email(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ("/", MainPage),
+    #run
     ("/runb", RunB),
     ("/runc", RunC),
+    ("/crushusb", CrushUSB),
+
     ("/jumpincar", JumpInCar),
     ("/run", Run),
     ("/contactcssi", ContactCSSI),
