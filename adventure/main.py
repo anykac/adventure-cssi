@@ -43,6 +43,11 @@ class RejectJumpIn(webapp2.RequestHandler):
         template = env.get_template('template/rejectjump.html')
         self.response.write(template.render())
 
+class JumpInCar(webapp2.RequestHandler):
+    def get(self):
+        template = env.get_template('templates/email.html')
+        self.response.write(template.render()) #the response
+
 app = webapp2.WSGIApplication([
     ("/", MainPage),
     ("/jumpincar", JumpInCar),
