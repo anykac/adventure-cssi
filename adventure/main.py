@@ -40,7 +40,20 @@ class AcceptJumpIn(webapp2.RequestHandler):
 
 class RejectJumpIn(webapp2.RequestHandler):
     def get(self):
-        template = env.get_template('template/rejectjump.html')
+        template = env.get_template('templates/rejectjump.html')
+        self.response.write(template.render())
+
+
+
+
+class ListenToCar(webapp2.RequestHandler):
+    def get(self):
+        template = env.get_template('templates/listentocar.html')
+        self.response.write(template.render())
+
+class RunAway(webapp2.RequestHandler):
+    def get(self):
+        template = env.get_template('templates/runaway.html')
         self.response.write(template.render())
 
 app = webapp2.WSGIApplication([
@@ -52,4 +65,7 @@ app = webapp2.WSGIApplication([
     #Jump In
     ("/accept", AcceptJumpIn),
     ("/reject", RejectJumpIn),
+
+    ("/listentocar", ListenToCar),
+    ("/runaway", RunAway),
 ], debug=True)
