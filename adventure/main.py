@@ -72,4 +72,7 @@ app = webapp2.WSGIApplication([
     #Jump In
     ("/accept", AcceptJumpIn),
     ("/reject", RejectJumpIn),
+    #ignore
+    ("/listentocar", ListenToCar),
+    ("/runaway", RunAway),
 ], debug=True)
