@@ -42,6 +42,22 @@ class IgnoreCar(webapp2.RequestHandler):
         template = env.get_template('templates/ignorecar.html')
         self.response.write(template.render()) #the response
 
+#Options from Jump In
+class AcceptJumpIn(webapp2.RequestHandler):
+    def get(self):
+        template = env.get_template('templates/acceptjump.html')
+        self.response.write(template.render())
+
+class RejectJumpIn(webapp2.RequestHandler):
+    def get(self):
+        template = env.get_template('templates/rejectjump.html')
+        self.response.write(template.render())
+
+class Email(webapp2.RequestHandler):
+    def get(self):
+        template = env.get_template('templates/email.html')
+        self.response.write(template.render()) #the response
+
 app = webapp2.WSGIApplication([
     ("/", MainPage),
     ("/runb", RunB),
@@ -50,4 +66,8 @@ app = webapp2.WSGIApplication([
     ("/run", Run),
     ("/contactcssi", ContactCSSI),
     ("/ignorecar", IgnoreCar),
+    #Jump In
+    ("/accept", AcceptJumpIn),
+    ("/reject", RejectJumpIn),
+    ("/email", Email),
 ], debug=True)
